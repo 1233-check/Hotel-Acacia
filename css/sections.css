@@ -420,54 +420,286 @@
 }
 .mobile-nav a:hover { color: var(--gold); }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
+/* ============================================
+   RESPONSIVE — All Android & iOS Devices
+   ============================================ */
+
+/* ── LARGE TABLETS & SMALL DESKTOPS (1024px) ── */
+/* iPad Pro 12.9", Surface Pro, large Android tablets */
+@media (max-width: 1200px) {
+  .container { padding: 0 32px; }
   .rooms-grid { gap: 24px; }
   .dining-grid, .events-grid, .location-grid { gap: 40px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .hero-stats { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .hero-stats { right: 40px; gap: 36px; }
+  .hero-stats .hero-stat-number { font-size: 2rem; }
+  .explore-grid { gap: 20px; }
 }
 
-@media (max-width: 768px) {
-  .section { padding: 72px 0; }
+/* ── TABLETS (768–1024px) ── */
+/* iPad 10th gen, iPad Air, iPad Mini, Samsung Tab S series */
+@media (max-width: 1024px) {
+  .hero-stats { display: none; }
+  .nav-links { gap: 24px; }
+  .nav-links a { font-size: 0.8rem; }
+  .nav-cta { padding: 8px 18px !important; font-size: 0.78rem !important; }
+  .dining-image { height: 400px; }
+  .events-image { height: 380px; }
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonial-card { flex: 0 0 340px; padding: 28px; }
+  .location-map { height: 360px; }
+}
 
+/* ── TABLET PORTRAIT & LARGE PHONES (768px) ── */
+/* iPad Mini portrait, Samsung Tab A, Pixel Tablet */
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .container { padding: 0 24px; }
+
+  /* Navbar → hamburger */
   .nav-links { display: none; }
   .nav-logo::after { display: none; }
   .hamburger { display: flex; }
+  .nav-logo img { height: 44px; }
+  .navbar.scrolled .nav-logo img { height: 36px; }
+  .navbar { padding: 16px 0; }
+  .navbar.scrolled { padding: 10px 0; }
 
-  .hero { min-height: 600px; }
+  /* Hero */
+  .hero { min-height: 100svh; }
   .hero h1 { font-size: 2.4rem; }
-  .hero-description { font-size: 1rem; }
+  .hero-description { font-size: 0.95rem; margin-bottom: 28px; }
+  .hero-content { max-width: 100%; }
 
+  /* Pillars */
   .pillars-grid { grid-template-columns: 1fr; }
   .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 40px 32px; }
   .pillar:last-child { border-bottom: none; }
 
+  /* Rooms */
   .rooms-grid { grid-template-columns: 1fr; }
-  .room-card-image { height: 220px; }
+  .room-card-image { height: 240px; }
+  .room-card-body { padding: 24px; }
+  .rooms-header { margin-bottom: 40px; }
 
+  /* Dining / Events / Location → single column */
   .dining-grid, .events-grid, .location-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .dining-image, .events-image { height: 300px; }
+  .dining-image { height: 280px; }
+  .events-image { height: 280px; }
   .events-grid .events-image { order: -1; }
+  .dining-features { gap: 16px; }
 
+  /* Explore */
   .explore-grid { grid-template-columns: 1fr; }
+  .explore-card { padding: 24px; }
+  .explore-header { margin-bottom: 40px; }
 
-  .testimonial-card { flex: 0 0 300px; }
+  /* Testimonials */
+  .testimonial-card { flex: 0 0 300px; padding: 24px; }
 
+  /* Location */
+  .location-map { height: 300px; }
+
+  /* Footer */
+  .footer { padding: 60px 0 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { font-size: 0.75rem; }
 
-  .booking-modal-content { padding: 32px 24px; }
+  /* Booking Modal */
+  .booking-modal-content { padding: 32px 24px; max-width: 100%; width: 94%; }
+  .booking-modal h2 { font-size: 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
+
+  /* Mobile Nav */
+  .mobile-nav a { font-size: 1.5rem; }
+
+  /* WhatsApp FAB */
+  .whatsapp-fab { width: 54px; height: 54px; font-size: 1.5rem; bottom: 20px; right: 20px; }
 }
 
-@media (max-width: 480px) {
-  .hero h1 { font-size: 2rem; }
-  .hero-actions { flex-direction: column; }
-  .hero-actions .btn { width: 100%; justify-content: center; }
+/* ── PHABLETS (480–640px) ── */
+/* iPhone 15 Pro Max, iPhone 16 Plus, Samsung S24 Ultra, Pixel 8 Pro */
+@media (max-width: 640px) {
+  .section { padding: 56px 0; }
+  .container { padding: 0 20px; }
+
   .section-title { font-size: 1.8rem; }
+  .section-subtitle { font-size: 0.9rem; }
+  .section-label { font-size: 0.7rem; letter-spacing: 2px; }
+
+  .hero h1 { font-size: 2.1rem; line-height: 1.15; }
+  .hero-badge { font-size: 0.65rem; padding: 6px 14px; }
+  .hero-description { font-size: 0.9rem; line-height: 1.7; }
+
+  .room-card-image { height: 200px; }
+  .room-card-body h3 { font-size: 1.2rem; }
+  .room-price { font-size: 1.4rem; }
+  .room-amenities { gap: 8px; }
+  .room-amenity { font-size: 0.72rem; padding: 3px 8px; }
+
+  .dining-image { height: 240px; }
   .dining-features { grid-template-columns: 1fr; }
+
+  .events-image { height: 240px; }
+  .event-item { padding: 12px 16px; gap: 12px; }
+  .event-item-icon { width: 38px; height: 38px; font-size: 1rem; }
+
+  .explore-card-icon { width: 52px; height: 52px; font-size: 1.3rem; }
+  .explore-card h3 { font-size: 1rem; }
+  .explore-card p { font-size: 0.8rem; }
+
+  .testimonial-card { flex: 0 0 280px; }
+  .testimonial-text { font-size: 0.88rem; }
+
+  .location-detail { gap: 12px; }
+  .location-detail-icon { width: 38px; height: 38px; font-size: 1rem; }
+  .location-map { height: 260px; }
+
+  .booking-modal-content { padding: 28px 20px; border-radius: var(--radius-lg); }
+  .form-group input, .form-group select { padding: 11px 14px; font-size: 0.9rem; }
 }
+
+/* ── STANDARD PHONES (360–480px) ── */
+/* iPhone 14/15/16, Galaxy S23/S24, Pixel 7/8, OnePlus, Xiaomi */
+@media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .container { padding: 0 16px; }
+
+  .hero h1 { font-size: 1.85rem; }
+  .hero-description { font-size: 0.88rem; max-width: 100%; }
+  .hero-actions { flex-direction: column; gap: 12px; }
+  .hero-actions .btn { width: 100%; justify-content: center; padding: 14px 20px; }
+  .hero-badge { margin-bottom: 16px; }
+
+  .section-title { font-size: 1.6rem; }
+
+  .nav-logo img { height: 38px; }
+  .navbar.scrolled .nav-logo img { height: 32px; }
+
+  .pillar { padding: 32px 20px; }
+  .pillar-icon { width: 48px; height: 48px; font-size: 1.2rem; }
+  .pillar h3 { font-size: 1rem; }
+  .pillar p { font-size: 0.85rem; }
+
+  .room-card-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .room-card-footer .btn { width: 100%; text-align: center; justify-content: center; }
+
+  .dining-image { height: 200px; }
+  .dining-feature-icon { width: 36px; height: 36px; font-size: 0.95rem; }
+  .dining-feature h4 { font-size: 0.8rem; }
+  .dining-feature p { font-size: 0.75rem; }
+
+  .events-image { height: 200px; }
+  .event-item h4 { font-size: 0.88rem; }
+
+  .explore-card { padding: 20px; }
+
+  .testimonial-card { flex: 0 0 260px; padding: 20px; }
+  .testimonial-text { font-size: 0.85rem; line-height: 1.7; }
+  .testimonial-avatar { width: 38px; height: 38px; font-size: 0.85rem; }
+
+  .location-detail p { font-size: 0.8rem; }
+  .location-map { height: 220px; }
+
+  .footer-brand p { font-size: 0.85rem; }
+  .footer-col a, .footer-col p { font-size: 0.85rem; }
+
+  .mobile-nav a { font-size: 1.3rem; }
+  .mobile-nav { gap: 24px; }
+
+  .scroll-indicator { bottom: 20px; }
+  .scroll-indicator span { font-size: 0.6rem; }
+  .scroll-line { height: 28px; }
+}
+
+/* ── SMALL PHONES (320–360px) ── */
+/* iPhone SE, Galaxy A series, older Android devices */
+@media (max-width: 360px) {
+  .container { padding: 0 14px; }
+
+  .hero h1 { font-size: 1.6rem; }
+  .hero-description { font-size: 0.82rem; }
+  .hero-badge { font-size: 0.6rem; padding: 5px 12px; letter-spacing: 1.5px; }
+
+  .section-title { font-size: 1.4rem; }
+  .section-subtitle { font-size: 0.82rem; }
+
+  .nav-logo img { height: 34px; }
+
+  .room-card-image { height: 180px; }
+  .room-card-body { padding: 18px; }
+  .room-card-body h3 { font-size: 1.1rem; }
+  .room-price { font-size: 1.25rem; }
+
+  .pillar { padding: 28px 16px; }
+  .explore-card { padding: 18px; }
+
+  .testimonial-card { flex: 0 0 240px; padding: 18px; }
+
+  .booking-modal-content { padding: 24px 16px; }
+  .booking-modal h2 { font-size: 1.3rem; }
+  .form-group input, .form-group select { padding: 10px 12px; font-size: 0.85rem; }
+  .form-group label { font-size: 0.72rem; }
+}
+
+/* ── FOLDABLES (< 320px) ── */
+/* Galaxy Z Fold (front screen ~280px), Galaxy Z Flip */
+@media (max-width: 320px) {
+  .container { padding: 0 12px; }
+  .hero h1 { font-size: 1.4rem; }
+  .section-title { font-size: 1.25rem; }
+  .nav-logo img { height: 30px; }
+  .hero-badge { display: none; }
+  .room-amenities { display: none; }
+  .explore-card-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+}
+
+/* ── LANDSCAPE MODE ── */
+/* Prevents hero from being too tall in landscape on phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: 100svh; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero-description { display: none; }
+  .hero-badge { display: none; }
+  .scroll-indicator { display: none; }
+  .preloader { display: none; }
+}
+
+/* ── iOS SAFE AREAS ── */
+/* iPhone notch / Dynamic Island / home indicator insets */
+@supports (padding: env(safe-area-inset-top)) {
+  .navbar { padding-top: max(20px, env(safe-area-inset-top)); }
+  .navbar.scrolled { padding-top: max(10px, env(safe-area-inset-top)); }
+  .footer-bottom { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .whatsapp-fab { bottom: max(28px, calc(env(safe-area-inset-bottom) + 12px)); }
+  .mobile-nav { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+  .booking-modal { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+}
+
+/* ── TOUCH DEVICE OPTIMIZATIONS ── */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .room-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+  .explore-card:hover { transform: none; }
+  .testimonial-card:hover { transform: none; }
+  .event-item:hover { background: rgba(255,255,255,0.05); }
+
+  /* Ensure minimum tap target size of 44px (Apple HIG) */
+  .nav-cta { min-height: 44px; display: inline-flex !important; align-items: center !important; }
+  .btn { min-height: 44px; }
+  .footer-social a { width: 44px; height: 44px; }
+  .hamburger { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+  .booking-close { width: 44px; height: 44px; }
+
+  /* Prevent iOS zoom on form focus */
+  .form-group input, .form-group select { font-size: 16px; }
+}
+
+/* ── HIGH DPI / RETINA ── */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-logo img { image-rendering: -webkit-optimize-contrast; }
+}
+

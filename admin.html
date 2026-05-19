@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acacia OS | Revenue & Automation Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">ACACIA <span>OS</span></div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="#" class="nav-item"><span class="nav-icon">📅</span> Bookings</a>
+      <a href="#" class="nav-item"><span class="nav-icon">🤖</span> AI Concierge</a>
+      <a href="#" class="nav-item"><span class="nav-icon">⭐</span> Review Automation</a>
+      <a href="#" class="nav-item"><span class="nav-icon">📈</span> OTA Manager</a>
+      <a href="#" class="nav-item"><span class="nav-icon">⚙️</span> Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="avatar">GM</div>
+        <div class="user-details">
+          <h4>General Manager</h4>
+          <span>Hotel Acacia</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="page-title">
+        <h1>Overview</h1>
+        <p>Real-time revenue and automation insights</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          AI Automation: Active
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card primary">
+          <div class="stat-header">
+            <span class="stat-title">OTA Commission Saved</span>
+            <div class="stat-icon">💰</div>
+          </div>
+          <div class="stat-value">₹2,14,500</div>
+          <div class="stat-trend trend-up">↑ 18.2% vs last month</div>
+          <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 8px;">Because 42 bookings shifted to Direct Website</p>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Direct Bookings</span>
+            <div class="stat-icon">🌐</div>
+          </div>
+          <div class="stat-value">42</div>
+          <div class="stat-trend trend-up">↑ 34% vs last month</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">AI Conversations</span>
+            <div class="stat-icon">🤖</div>
+          </div>
+          <div class="stat-value">318</div>
+          <div class="stat-trend trend-up">↑ 124 hrs saved</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">New Google Reviews</span>
+            <div class="stat-icon">⭐</div>
+          </div>
+          <div class="stat-value">27</div>
+          <div class="stat-trend trend-up">↑ 400% via Auto-Ask</div>
+        </div>
+      </div>
+
+      <!-- Charts Area -->
+      <div class="charts-grid">
+        
+        <!-- Revenue Chart -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Revenue: Direct vs. OTA (This Week)</h3>
+          </div>
+          <div class="card-body" style="height: 350px;">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Automation Showcase -->
+        <div class="card automation-showcase">
+          <div class="card-header">
+            <h3>AI Concierge Activity</h3>
+          </div>
+          <div class="card-body">
+            <div class="auto-stat">
+              <div class="auto-stat-label">Inquiries Handled Automatically</div>
+              <div class="auto-stat-val">87%</div>
+              <div class="auto-stat-sub">Zero manual front-desk effort</div>
+            </div>
+
+            <div class="ai-activity">
+              <div class="activity-item">
+                <span class="activity-icon">💬</span>
+                <div class="activity-text">
+                  <h4>WhatsApp Inquiry</h4>
+                  <p>"Are rooms available for 25th Dec?" → AI replied with direct booking link.</p>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-icon">🔔</span>
+                <div class="activity-text">
+                  <h4>Pre-Arrival Message</h4>
+                  <p>Sent directions & check-in details to 4 incoming guests.</p>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-icon">⭐</span>
+                <div class="activity-text">
+                  <h4>Review Harvest</h4>
+                  <p>Auto-sent Google Review link to Mr. Sharma. (Rated 5/5)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Booking Table -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Recent Bookings (Live)</h3>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Guest</th>
+                <th>Room Type</th>
+                <th>Check-in</th>
+                <th>Source</th>
+                <th>Status</th>
+                <th>Auto-Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="guest-name">Rahul Sharma</div>
+                  <div class="guest-source">+91 98765 43210</div>
+                </td>
+                <td>Suite King Room</td>
+                <td>Oct 12, 2024</td>
+                <td class="source-direct">Direct (Website)</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td><button class="btn-sm">Send Upsell SMS</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="guest-name">Priya Desai</div>
+                  <div class="guest-source">+91 87654 32109</div>
+                </td>
+                <td>Deluxe King AC</td>
+                <td>Oct 14, 2024</td>
+                <td class="source-ota">MakeMyTrip</td>
+                <td><span class="badge confirmed">Confirmed</span></td>
+                <td><button class="btn-sm">Send Directions</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="guest-name">T. Ao</div>
+                  <div class="guest-source">+91 99887 76655</div>
+                </td>
+                <td>Deluxe Double AC</td>
+                <td>Oct 10, 2024</td>
+                <td class="source-direct">Direct (WhatsApp AI)</td>
+                <td><span class="badge confirmed">Checked Out</span></td>
+                <td><button class="btn-sm">Ask for Review</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

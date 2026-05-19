@@ -1,0 +1,321 @@
+/* ============================================
+   HOTEL ACACIA — Component Styles
+   ============================================ */
+
+/* ── PRELOADER ── */
+.preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--green-deep);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-content { text-align: center; }
+.preloader-logo {
+  font-family: var(--font-heading);
+  font-size: 2rem; color: var(--gold);
+  letter-spacing: 4px; margin-bottom: 24px;
+}
+.preloader-bar {
+  width: 200px; height: 2px;
+  background: rgba(200,164,94,0.2);
+  border-radius: 2px; overflow: hidden;
+}
+.preloader-bar span {
+  display: block; height: 100%; width: 0;
+  background: var(--gold);
+  animation: preloaderFill 1.5s ease forwards;
+}
+@keyframes preloaderFill { to { width: 100%; } }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px 0;
+  transition: all var(--transition-normal);
+}
+.navbar.scrolled {
+  background: rgba(26,58,42,0.95);
+  backdrop-filter: blur(20px);
+  padding: 12px 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.navbar .container {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; font-weight: 600;
+  color: var(--gold); letter-spacing: 2px;
+}
+.nav-logo span { color: var(--white); font-weight: 400; }
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+}
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.5px; text-transform: uppercase;
+  position: relative; padding: 4px 0;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: -2px; left: 0; width: 0; height: 1.5px;
+  background: var(--gold);
+  transition: width var(--transition-normal);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  padding: 10px 24px !important;
+  background: var(--gold) !important;
+  color: var(--green-deep) !important;
+  border-radius: var(--radius-sm) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-1px);
+}
+.nav-cta::after { display: none !important; }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; z-index: 1001;
+}
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--white);
+  transition: all var(--transition-fast);
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* ── HERO ── */
+.hero {
+  position: relative; height: 100vh; min-height: 700px;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26,58,42,0.85) 0%,
+    rgba(26,58,42,0.6) 40%,
+    rgba(26,58,42,0.4) 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 700px; padding: 0 24px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px;
+  background: rgba(200,164,94,0.15);
+  border: 1px solid rgba(200,164,94,0.3);
+  border-radius: 50px;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 600; color: var(--white);
+  line-height: 1.1; margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: italic; color: var(--gold);
+  font-weight: 500;
+}
+.hero-description {
+  font-size: 1.1rem; color: rgba(255,255,255,0.75);
+  line-height: 1.8; margin-bottom: 36px;
+  max-width: 540px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-stats {
+  position: absolute; bottom: 60px; right: 60px;
+  z-index: 2; display: flex; gap: 48px;
+}
+.hero-stat { text-align: center; }
+.hero-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem; font-weight: 600;
+  color: var(--gold);
+}
+.hero-stat-label {
+  font-size: 0.75rem; color: rgba(255,255,255,0.6);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+.scroll-indicator {
+  position: absolute; bottom: 32px;
+  left: 50%; transform: translateX(-50%);
+  z-index: 2; display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+}
+.scroll-indicator span {
+  font-size: 0.7rem; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: rgba(255,255,255,0.2);
+  position: relative; overflow: hidden;
+}
+.scroll-line::after {
+  content: ''; position: absolute;
+  top: -100%; left: 0; width: 100%; height: 50%;
+  background: var(--gold);
+  animation: scrollDown 2s infinite;
+}
+@keyframes scrollDown {
+  0% { top: -50%; } 100% { top: 100%; }
+}
+
+/* ── PILLARS ── */
+.pillars {
+  background: var(--green-deep);
+  padding: 0;
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.pillar {
+  padding: 60px 40px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  transition: background var(--transition-normal);
+}
+.pillar:last-child { border-right: none; }
+.pillar:hover { background: rgba(255,255,255,0.03); }
+.pillar-icon {
+  width: 56px; height: 56px;
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(200,164,94,0.1);
+  border: 1px solid rgba(200,164,94,0.2);
+  color: var(--gold); font-size: 1.4rem;
+}
+.pillar h3 {
+  font-size: 1.1rem; color: var(--white);
+  margin-bottom: 12px; letter-spacing: 1px;
+}
+.pillar p {
+  font-size: 0.9rem; color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+
+/* ── ROOMS ── */
+.rooms { background: var(--ivory); }
+.rooms-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.rooms-header .section-subtitle {
+  margin: 0 auto;
+}
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.room-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+.room-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+.room-card-image {
+  position: relative; height: 280px; overflow: hidden;
+}
+.room-card-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+.room-card:hover .room-card-image img {
+  transform: scale(1.08);
+}
+.room-card-badge {
+  position: absolute; top: 16px; left: 16px;
+  padding: 6px 14px;
+  background: var(--gold);
+  color: var(--green-deep);
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  border-radius: 50px;
+}
+.room-card-body { padding: 28px; }
+.room-card-body h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+.room-card-body p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.room-amenities {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin-bottom: 24px;
+}
+.room-amenity {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.78rem; color: var(--gray-600);
+  padding: 4px 10px;
+  background: var(--gray-100);
+  border-radius: 50px;
+}
+.room-amenity svg { width: 14px; height: 14px; }
+.room-card-footer {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+}
+.room-price {
+  font-family: var(--font-heading);
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--green-deep);
+}
+.room-price span {
+  font-family: var(--font-body);
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--gray-400);
+}
+.room-card-footer .btn {
+  padding: 10px 20px;
+  font-size: 0.8rem;
+}

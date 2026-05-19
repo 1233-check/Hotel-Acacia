@@ -12,9 +12,11 @@
 .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .preloader-content { text-align: center; }
 .preloader-logo {
-  font-family: var(--font-heading);
-  font-size: 2rem; color: var(--gold);
-  letter-spacing: 4px; margin-bottom: 24px;
+  margin-bottom: 24px; text-align: center;
+}
+.preloader-logo img {
+  height: 50px; width: auto; margin: 0 auto;
+  filter: invert(1) brightness(1.5) sepia(1) hue-rotate(5deg) saturate(3);
 }
 .preloader-bar {
   width: 200px; height: 2px;
@@ -44,11 +46,16 @@
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem; font-weight: 600;
-  color: var(--gold); letter-spacing: 2px;
+  display: block;
 }
-.nav-logo span { color: var(--white); font-weight: 400; }
+.nav-logo img {
+  height: 54px; width: auto;
+  filter: invert(1) brightness(2);
+  transition: all var(--transition-fast);
+}
+.navbar.scrolled .nav-logo img {
+  height: 44px;
+}
 .nav-links {
   display: flex; align-items: center; gap: 36px;
 }

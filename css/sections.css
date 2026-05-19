@@ -431,7 +431,10 @@
 @media (max-width: 768px) {
   .section { padding: 72px 0; }
 
-  .nav-links { display: none; }
+  .navbar .container { display: flex; justify-content: space-between; }
+  .nav-links-left, .nav-links-right { display: none; }
+  .nav-logo::before { display: none; }
+  
   .hamburger { display: flex; }
 
   .hero { min-height: 600px; }
